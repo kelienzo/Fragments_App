@@ -11,7 +11,7 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_newFragment3"
+            android:id="@+id/action_homeFragment_to_newFragment"
             app:destination="@id/newFragment" />
     </fragment>
     <fragment

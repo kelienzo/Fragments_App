@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
+import androidx.navigation.findNavController
 import com.kelly.fragmentsapp.R
 import com.kelly.fragmentsapp.databinding.FragmentHomeBinding
 
@@ -32,17 +31,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun openNextFragmentKt() {
-        manager.commit {
-            replace<NewFragment>(R.id.fragmentContainerView)
-            setReorderingAllowed(true)
-            addToBackStack("")
-        }
-    }
-
-    private fun openNextFragmentJv() {
-        manager.beginTransaction()
-            .replace(R.id.fragmentContainerView, NewFragment::class.java, null)
-            .setReorderingAllowed(true)
-            .addToBackStack("")
+        val action = HomeFragmentDirections.actionHomeFragmentToNewFragment()
+        requireActivity().findNavController(R.id.fragmentContainerView)
+            .navigate(R.id.action_homeFragment_to_newFragment)
     }
 }
